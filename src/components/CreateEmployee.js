@@ -14,8 +14,8 @@ const CreateEmployee = () => {
         city: "",
         state: "",
         zipCode: "",
-        StartDate: "",
         department: "",
+        startDate: "",
     })
     
     const dispatch = useDispatch();
@@ -33,65 +33,29 @@ console.log(employee)
         <div className='create'>
             <h2>Create Employee</h2>
             <form className='create__form' onSubmit={saveEmployee}>
-                {/* {inputNames.map((input) =>{
-                    return <Input htmlFor={input.id} label={input.name} type={input.type} />
-                })}
-                 */}
-
-                <div className='create__form__group'>
-                    <label htmlFor="first-name">First Name</label>
-                    <input type="text" onChange={(e) => setEmployee({...employee, firstName: e.target.value})} />
-                </div>
-                    
-                <div className='create__form__group'>
-                    <label htmlFor="last-name">Last Name</label>
-                    <input type="text" id="last-name" onChange={(e) => setEmployee({...employee, lastName: e.target.value})}/>
-                </div>
-                    
-                <div className='create__form__group'>
-                    <label htmlFor="date-of-birth">Date of Birth</label>
-                    <input type="date" id="date-of-birth"  onChange={(e) => setEmployee({...employee, birthDate: e.target.value})}/>
-                </div>
                 
+                <Input htmlFor={"first-name"} label={"First Name"} type={"text"} onChange={(e) => setEmployee({...employee, firstName: e.target.value})} />
                 
+                <Input htmlFor={"last-name"} label={"Last Name"} type={"text"} onChange={(e) => setEmployee({...employee, lastName: e.target.value})}/>
                     
+                <Input htmlFor={"date-of-birth"} label={"Date of Birth"} type={"date"} onChange={(e) => setEmployee({...employee, birthDate: e.target.value})}/>
+                
                 <fieldset className="create__form__address">
                     <legend>Address</legend>
-                    {/* {adressNames.map((input) =>{
-                    return <Input htmlFor={input.id} label={input.name} type={input.type} />
-                })} */}
+                    
+                    <Input htmlFor={"street"} label={"Street"} type={"text"} onChange={(e) => setEmployee({...employee, street: e.target.value})} />
+                    
+                    <Input htmlFor={"city"} label={"City"} type={"text"} onChange={(e) => setEmployee({...employee, city: e.target.value})} />
 
-                    <div className='create__form__group'>
-                        <label htmlFor="street">Street</label>
-                        <input id="street" type="text" onChange={(e) => setEmployee({...employee, street: e.target.value})}/>
-                    </div>
+                    <Dropdown name={"state"} label={"State"} options={states} onChange={(e) => setEmployee({...employee, state: e.target.value})} />
                     
-                    <div className='create__form__group'>
-                        <label htmlFor="city">City</label>
-                        <input id="city" type="text" onChange={(e) => setEmployee({...employee, city: e.target.value})}/>
-                    </div>
-                    
-                    <div className='create__form__group'>
-                        <label htmlFor="state">State</label>
-                        <Dropdown name={"state"} options={states} onChange={(e) => setEmployee({...employee, state: e.target.value})} />
-                    </div>
-                    
-                    <div className='create__form__group'>
-                        <label htmlFor="zip-code">Zip Code</label>
-                        <input id="zip-code" type="number" onChange={(e) => setEmployee({...employee, zipCode: e.target.value})}/>
-                    </div>
-                    
+                    <Input htmlFor={"zip-code"} label={"Zip Code"} type={"number"} onChange={(e) => setEmployee({...employee, zipCode: e.target.value})} />
                 </fieldset>
 
-                <div className='create__form__group'>
-                    <label htmlFor="department">Department</label>
-                    <Dropdown name={"department"} options={workDepartment}  onChange={(e) => setEmployee({...employee, department: e.target.value})} />
-                    
-                </div>
-                <div className='create__form__group'>
-                    <label htmlFor="start-date">Start Date</label>
-                    <input id="start-date" type="date" onChange={(e) => setEmployee({...employee, startDate: e.target.value})}></input>
-                </div>
+                <Dropdown name={"department"} label={"Department"} options={workDepartment}  onChange={(e) => setEmployee({...employee, department: e.target.value})} />
+
+                <Input htmlFor={"start-date"} label={"Start Date"} type={"date"} onChange={(e) => setEmployee({...employee, startDate: e.target.value})} />
+                
                 <div className='create__form__button'>
                     <button className='create__form__button--style' type='submit'>Save</button>
                 </div>

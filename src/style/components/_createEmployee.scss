@@ -14,17 +14,39 @@
         width: 40%;
         margin: 20px 0;
 
+        @media all and (max-device-width: 800px){
+            width: 90%;
+            flex-direction: column;
+            justify-content: center;
+        }
+        @media only screen and (min-device-width : 800px) and (max-device-width : 1024px) {
+            width: 60%;
+            
+        }
+
 
         &__group{
             display: flex;
             flex-direction: column;
             width: 45%;
 
-            & input, select{
+            & input{
                 margin-top: 15px;
                 
             }
+            & select{
+                padding: .4em 1em;
+                margin-top: 10px;
+            }
 
+            @media all and (max-device-width: 800px){
+                align-items: center;
+                width: 100%;
+
+                & input, select{
+                    width: 100%;
+                }
+            }
         
         }
         &__address{
