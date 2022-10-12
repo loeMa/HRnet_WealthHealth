@@ -1,0 +1,58 @@
+.create{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+    &__form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        column-gap: 30px;
+        row-gap: 30px;
+        width: 40%;
+        margin: 20px 0;
+
+
+        &__group{
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+
+            & input, select{
+                margin-top: 15px;
+                
+            }
+
+        
+        }
+        &__address{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            column-gap: 30px;
+            row-gap: 30px;
+            padding: 20px;
+        }
+        
+        &__button{
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+
+
+            &--style{
+                width: 100px;
+                height: 35px;
+                font-size: 18px;
+                background-color: #93ad18;
+                color: white;
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        }
+    }
+    
+}
