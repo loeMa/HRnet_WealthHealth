@@ -1,22 +1,21 @@
-import React from 'react';
 
 
-const Input = ({htmlFor, label, type, name, changeValue}) => {
+const DatePicker = ({htmlFor, label, name, changeValue}) => {
 
 
     const handleChange = e => {
         const { name, value } = e.target;
-        const nameRegex = /^[a-zA-Z|\s]{2,20}$/
-        const numberRegex = /^((\d{5}-\d{4})|(\d{5})|([A-Z]\d[A-Z]\s\d[A-Z]\d))$/ ;
+        const age = new Date() - new Date(value);
+        const result= Math.floor(age/1000/60/60/24/365);
 
-        if(type === "text"){
-            
-            if(value.match(nameRegex)){
+        if(htmlFor === "date-of-birth"){
+
+            if(result > 18 && result < 70){
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: value
                 }));
-            }else {
+            }else{
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: ""
@@ -24,7 +23,7 @@ const Input = ({htmlFor, label, type, name, changeValue}) => {
             } 
 
         }else{
-            if(value.match(numberRegex)){
+            if(new Date(value) <= new Date()){
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: value
@@ -39,15 +38,13 @@ const Input = ({htmlFor, label, type, name, changeValue}) => {
     };
 
     return (
-
         <div className='create__form__group'>
 
             <label htmlFor={htmlFor} >{label}</label>
-            <input type={type} name={name} id={htmlFor} onChange={handleChange} />
-            
+            <input type="date" name={name} id={htmlFor} onChange={handleChange} />
+            <span className='error'></span>
         </div>
-
     );
 };
 
-export default Input;
+export default DatePicker;
