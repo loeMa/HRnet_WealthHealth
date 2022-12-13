@@ -10,8 +10,8 @@ const initialState = {
     city: "",
     state: "",
     zipCode: "",
-    StartDate: "",
     department: "",
+    startDate: "",
 
 }
 
@@ -27,8 +27,8 @@ export const employeeSlice = createSlice({
             state.city = payload.city;
             state.state = payload.state;
             state.zipCode = payload.zipCode;
-            state.StartDate = payload.StartDate;
             state.department = payload.department;
+            state.startDate = payload.startDate;
         }
     }
 })
