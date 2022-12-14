@@ -31,6 +31,7 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message}) => {
         if(htmlFor === "date-of-birth"){
 
             if(result >= 18 && result <= 70){
+                error = false;
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: value.toLocaleDateString()
