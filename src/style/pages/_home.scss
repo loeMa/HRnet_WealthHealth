@@ -1,0 +1,11 @@
+.list--btn{
+    display: flex;
+    
+
+    & a{
+        width: 80%;
+        display: flex;
+        justify-content: end;
+        text-decoration: none;
+    }
+}

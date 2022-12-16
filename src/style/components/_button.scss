@@ -1,7 +1,5 @@
 .button{
-    width: 80%;
-    display: flex;
-    justify-content: end;
+    
     margin-top: 30px;
 
     @media only screen and (min-device-width : 800px) and (max-device-width : 1024px) {
@@ -15,11 +13,11 @@
     & a{
 
         & button{
-            align-self: flex-end;
+            
             background-color: #93ad18;
             border: none;
             height: 40px;
-            width: 200px;
+            padding: 0 20px;
             white-space: nowrap;
             color: white;
             font-weight: 600;

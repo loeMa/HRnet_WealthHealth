@@ -1,11 +1,23 @@
 .list{
     
-
     &__content{
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-top: 70px;
+
+        &--btn{
+            width: 80%;
+            display: flex;
+            justify-content: center;
+
+            & a{
+                display: flex;
+                justify-content: end;
+                width: 100%;
+                text-decoration: none;
+            }
+        }
     }
     /* &__footer{
         width: 80%;

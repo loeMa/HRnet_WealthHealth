@@ -2,17 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-
-    firstName:"",
-    lastName: "",
-    birthDate: "",
-    street: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    department: "",
-    startDate: "",
-
+    employees: []
 }
 
 export const employeeSlice = createSlice({
@@ -20,15 +10,20 @@ export const employeeSlice = createSlice({
     initialState,
     reducers: {
         createEmployee: (state, {payload}) =>{
-            state.firstName = payload.firstName;
-            state.lastName = payload.lastName;
-            state.birthDate = payload.birthDate;
-            state.street = payload.street;
-            state.city = payload.city;
-            state.state = payload.state;
-            state.zipCode = payload.zipCode;
-            state.department = payload.department;
-            state.startDate = payload.startDate;
+            
+            const employee = {
+                firstName : payload.firstName,
+                lastName : payload.lastName,
+                birthDate : payload.birthDate,
+                street : payload.street,
+                city : payload.city,
+                state : payload.state,
+                zipCode : payload.zipCode,
+                department : payload.department,
+                startDate : payload.startDate,
+            }
+            state.employees.push(employee)
+            
         }
     }
 })
