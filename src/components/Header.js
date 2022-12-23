@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <div className='header'>
             <NavLink to={"/"} aria-label='link to Home' />
-            <img src='./logo.webp' alt="logo wealth health" />
+            <img src='./logo.jpg' alt="logo wealth health" />
             <h1>HRnet</h1>
         </div>
     );
