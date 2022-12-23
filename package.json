@@ -7,8 +7,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "datable-react": "^1.0.1",
-    "lodash.omit": "^4.5.0",
+    "datable-react": "^1.0.2",
+    "jsdoc": "^4.0.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "jsdoc": "jsdoc -c jsdoc.json"
   },
   "eslintConfig": {
     "extends": [

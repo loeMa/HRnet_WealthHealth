@@ -1,14 +1,13 @@
 import { DataTable } from 'datable-react';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import {exampleLabels} from '../data/data-labels.js';
-import data from '../data/MOCK_DATA.json'
 import { createEmployee } from '../feature/employee.slice.js';
 import Header from '../components/Header'
 import Button from '../components/Button.js';
 
-/* import { exampleData, exampleLabels } from '../data/data-mock'; */
+/* import data from '../data/MOCK_DATA.json'
+import { exampleData, exampleLabels } from '../data/data-mock'; */
 
 const EmployeesList = () => {
 
@@ -22,7 +21,7 @@ const EmployeesList = () => {
             <div className='list__content'>
                 <h2>Current Employees</h2>
                 <DataTable labels={exampleLabels} data={employee} firstBackground='#546e03' /> 
-                <Button link={'/'} text='Create an new employee' classname={'list__content--btn'} />
+                <Button goto={'/'} text='Create an new employee' classname={'list__content--btn'} label={'go to page create employee'} />
             </div>
             
         </div>
