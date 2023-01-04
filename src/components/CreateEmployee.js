@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Dropdown from './Dropdown';
 import Input from './Input';
-import {states, workDepartment} from '../data/data';
+import {states, workDepartment} from '../data/dataDropdown';
 import DatePick from './DatePick'; 
 import { createEmployee } from '../feature/employee.slice';
 import Modal from './Modal';
@@ -17,13 +17,13 @@ const CreateEmployee = () => {
     const initialState = {
         firstName:"",
         lastName: "",
-        birthDate: "",
+        dateOfBirth: "",
         street: "",
         city: "",
         state: states[0].name,
         zipCode: "",
         department: workDepartment[0].name,
-        startDate: new Date().toLocaleDateString(),
+        startDate: new Date().toLocaleDateString("en-US"),
         formValid : []
     }
 
@@ -73,7 +73,7 @@ const CreateEmployee = () => {
                 
                 <Input  htmlFor={"first-name"} label={"First Name"} type={"text"} value={employee.firstName} error={!employee.firstName && isClick === true ? true : false} message={'Please enter only letter'} name={'firstName'} isClick={isClick} changeValue={ setEmployee} />
                 <Input htmlFor={"last-name"} label={"Last Name"} type={"text"} value={employee.lastName}  error={!employee.lastName && isClick === true ? true : false} message={'Please enter only letter'} name={'lastName'} isClick={isClick} changeValue={ setEmployee} />
-                <DatePick htmlFor={"date-of-birth"} label={"Date of Birth"} error={!employee.birthDate && isClick === true ? true : false}  message={'The date of birth field is required'} name={'birthDate'} isSubmit={isSubmit} isClick={isClick} changeValue={ setEmployee} />
+                <DatePick htmlFor={"date-of-birth"} label={"Date of Birth"} error={!employee.birthDate && isClick === true ? true : false}  message={'The date of birth field is required'} name={'dateOfBirth'} isSubmit={isSubmit} isClick={isClick} changeValue={ setEmployee} />
                 
                 <fieldset className="create__form__address">
                     <legend>Address</legend>
@@ -93,7 +93,7 @@ const CreateEmployee = () => {
                 </div>
                 
             </form>
-            {isShowing === true && <Modal />}
+            {isShowing === true && <Modal IsShowing={setIsShowing} isSubmit={setIsSubmit} />}
         </div>
     );
 };

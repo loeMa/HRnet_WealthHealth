@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Error from './Error';
@@ -34,6 +34,13 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
         return date <= Date.now();
     }
 
+    // reset startDate when the form is reset
+    useEffect(() => {
+        if (!isSubmit) {
+            setStartDate(new Date());
+        }
+    }, [isSubmit]);
+    
 
     // to set the value in the employee array
     const handleChange = (date, name)=> {
@@ -50,9 +57,10 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
                 error = false;
                 changeValue(prevState => ( {
                     ...prevState,
-                    [name]: value.toLocaleDateString()
+                    [name]: value.toLocaleDateString("en-US")
                 }));
             }else{
+                console.log(value, 'error')
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: ""
@@ -61,13 +69,12 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
         }else{
             
             if(date.getTime() < Date.now()){
-                console.log(value, 'ok')
                 changeValue(prevState => ( {
                     ...prevState,
-                    [name]: value.toLocaleDateString()
+                    [name]: value.toLocaleDateString("en-US")
                 }));
             }else{
-                console.log(value, 'nop')
+                console.log(value, 'error')
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: ""
@@ -78,13 +85,12 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
 
     return (
         <div className='create__form__group'>
-
             <label htmlFor={htmlFor} >{label}</label>
             <DatePicker
                         name={name} 
                         id={htmlFor}
-                        dateFormat="dd/MM/yyyy"
-                        selected={!isSubmit? startDate : new Date()}
+                        dateFormat="MM/dd/yyyy"
+                        selected={startDate}
                         onChange={date => handleChange(date, name)}
                         filterDate={name === 'birthDate'? isGoodAge : isEntry}
                         peekNextMonth

@@ -14,7 +14,7 @@ export const employeeSlice = createSlice({
             const employee = {
                 firstName : payload.firstName,
                 lastName : payload.lastName,
-                birthDate : payload.birthDate,
+                dateOfBirth : payload.dateOfBirth,
                 street : payload.street,
                 city : payload.city,
                 state : payload.state,

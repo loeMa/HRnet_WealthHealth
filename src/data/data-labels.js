@@ -1,4 +1,4 @@
-const exampleLabels = [
+const labels = [
     { text: "First Name", value: "firstName" },
     { text: "Last Name", value: "lastName" },
     { text: "Date of Birth", value: "dateOfBirth" },
@@ -11,4 +11,4 @@ const exampleLabels = [
   ];
   
   
-  export { exampleLabels };
+  export { labels };

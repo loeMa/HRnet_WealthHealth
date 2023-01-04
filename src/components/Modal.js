@@ -1,13 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from './Button';
+import PropTypes from 'prop-types';
 
-
-const Modal = () => {
+/**
+ * 
+ * @param {Function} IsShowing - to set if the modal is show
+ * @param {Function} isSubmit - to reset the form submission
+ * @returns {HTMLElement}
+ */
+const Modal = ({IsShowing, isSubmit}) => {
 
     const closeModal = () =>{
-        const spanClose = document.querySelector('.modal')
-        spanClose.style.display = 'none'
+        IsShowing(false);
+        isSubmit(false)
     }
 
     return (
@@ -22,5 +28,10 @@ const Modal = () => {
         </div>
     );
 };
+
+Modal.propTypes = {
+    IsShowing: PropTypes.func, 
+    isSubmit: PropTypes.func
+}
 
 export default Modal;
