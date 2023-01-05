@@ -27,13 +27,16 @@ const Input = ({htmlFor, label, type, name, value, changeValue, error, message, 
             return <Error message={message} />
     }
     
+    // to capitalize the first letter of the string
+    const capitalize = str => str.charAt(0).toUpperCase() + str.substring(1);
+
     // to set the new value in the employee array and if no set an error message
     const handleChange = e => {
         const { name, value } = e.target;
 
         changeValue(prevState => ( {
             ...prevState,
-            [name]: value
+            [name]: capitalize(value)
         }));
 
         if(name === 'street' && isClick === true){
