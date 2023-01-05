@@ -20,7 +20,7 @@ const EmployeesList = () => {
             <Header />
             <div className='list__content'>
                 <h2>Current Employees</h2>
-                <DataTable labels={labels} data={employee} firstBackground='#546e03' /> 
+                <DataTable labels={labels} data={employee} firstBackground='#546e03' language={true} /> 
                 <Button goto={'/'} text='Create an new employee' classname={'list__content--btn'} label={'go to page create employee'} />
             </div>
         </div>
