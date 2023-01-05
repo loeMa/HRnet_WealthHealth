@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
 const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit}) => {
     
     const [startDate, setStartDate] = useState(new Date());
+    const [errorDate, setErrorDate] = useState(false)
 
     // function to know if the employee is above 18 and below 70
     const isGoodAge = (date) => {
@@ -55,12 +56,14 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
             
             if(result >= 18 && result <= 70){
                 error = false;
+                setErrorDate(false)
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: value.toLocaleDateString("en-US")
                 }));
             }else{
                 console.log(value, 'error')
+                setErrorDate(true)
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: ""
@@ -69,12 +72,15 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
         }else{
             
             if(date.getTime() < Date.now()){
+                setErrorDate(false)
+                error = false;
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: value.toLocaleDateString("en-US")
                 }));
             }else{
                 console.log(value, 'error')
+                setErrorDate(true)
                 changeValue(prevState => ( {
                     ...prevState,
                     [name]: ""
@@ -82,7 +88,7 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
             }
         }
     };
-
+    
     return (
         <div className='create__form__group'>
             <label htmlFor={htmlFor} >{label}</label>
@@ -99,7 +105,7 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
                         dropdownMode="select"
                         placeholderText="Select a date other than the interval from 5 days ago to 5 days in the future"
                     />
-            {error && <Error message={message} /> }
+            {(error === true || errorDate === true) ? <Error message={message} /> : '' }
         </div>
     );
 };

@@ -73,7 +73,7 @@ const CreateEmployee = () => {
                 
                 <Input  htmlFor={"first-name"} label={"First Name"} type={"text"} value={employee.firstName} error={!employee.firstName && isClick === true ? true : false} message={'Please enter only letter'} name={'firstName'} isClick={isClick} changeValue={ setEmployee} />
                 <Input htmlFor={"last-name"} label={"Last Name"} type={"text"} value={employee.lastName}  error={!employee.lastName && isClick === true ? true : false} message={'Please enter only letter'} name={'lastName'} isClick={isClick} changeValue={ setEmployee} />
-                <DatePick htmlFor={"date-of-birth"} label={"Date of Birth"} error={!employee.birthDate && isClick === true ? true : false}  message={'The date of birth field is required'} name={'dateOfBirth'} isSubmit={isSubmit} isClick={isClick} changeValue={ setEmployee} />
+                <DatePick htmlFor={"date-of-birth"} label={"Date of Birth"} error={!employee.dateOfBirth && isClick === true ? true : false}  message={'The date of birth field is required'} name={'dateOfBirth'} isSubmit={isSubmit} isClick={isClick} changeValue={ setEmployee} />
                 
                 <fieldset className="create__form__address">
                     <legend>Address</legend>
