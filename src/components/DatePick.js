@@ -92,7 +92,7 @@ const DatePick = ({htmlFor, label, name, changeValue, error, message, isSubmit})
                         dateFormat="MM/dd/yyyy"
                         selected={startDate}
                         onChange={date => handleChange(date, name)}
-                        filterDate={name === 'birthDate'? isGoodAge : isEntry}
+                        filterDate={name === 'dateOfBirth'? isGoodAge : isEntry}
                         peekNextMonth
                         showMonthDropdown
                         showYearDropdown
